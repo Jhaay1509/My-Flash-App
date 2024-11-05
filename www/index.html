@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="..."> -->
+     <!-- External Stylesheets -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Ojuju:wght@200..800&family=Recursive:wght@300..1000&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/882d114e15.js"
+      crossorigin="anonymous"></script>
+      <!-- jQuery Libraries -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="css/index.css" />
+    
+    <!-- Page Title -->
+    <title>My FlashApp</title>
+  </head>
+  <body>
+    <!-- Main Content -->
+    <div id="deviceready">
+
+      <!-- Page 1: Login Page -->
+      <div data-role="page" id="page1" class="ui-content">
+        <!-- Header -->
+        <div data-role="header" id="page1header">
+          <!-- App Logo and Name -->
+          <img src="img/envelope.png" alt="iconlogo" class="enveloplogo" />
+          <div class="welcome">
+            <h3>Welcome to</h3>
+            <h1 id="appname">
+              <p class="logo">Flash<span>App</span></p>
+            </h1>
+          </div>
+          <!-- User Icon -->
+          <img src="img/user.png" alt="iconlogo" class="iconlogo" />
+        </div>
+        <!-- Main Content -->
+        <div data-role="main">
+          <!-- Login Form -->
+          <div class="login-container">
+            <form class="login-form">
+              <!-- Username Input -->
+              <div>
+                <label for="uname">Username</label>
+                <input type="text" id="uname" />
+              </div>
+
+              <!-- Password Input -->
+              <div>
+                <label for="pwd">Password</label>
+                <input type="password" id="pwd" />
+              </div>
+              <!-- Submit Button -->
+              <button id="submit" class="button">LOGIN</button>
+            </form>
+
+            <!-- Action Links -->
+            <div class="action">
+              <!-- Create Account Link -->
+              <a
+                id="CreateA"
+                href="https://apiexplorersandbox.openbankproject.com"
+                class="cta"
+                >Create Account</a
+              >
+
+              <!-- Forget Password Link -->
+              <a
+                id="ForgetP"
+                href="https://apiexplorersandbox.openbankproject.com"
+                class="cta"
+                >Forget Password</a
+              >
+            </div>
+             <!-- Checker Message -->
+            <h1 id="checker"></h1>
+          </div>
+        </div>
+         <!-- Footer -->
+        <div data-role="footer" data-position="fixed" class="footer">
+          <p>Flashapp</p>
+        </div>
+      </div>
+
+      <!-- Page 2: Main Dashboard -->
+      <div data-role="page" id="page2">
+        <!-- Header -->
+        <div data-role="header" class="header">
+          <!-- App Logo -->
+          <p class="logo">FLASHAPP</p>
+          <div class="user-avatar">
+            Welcome
+            <p class="user-name"></p>
+            <!-- Logout Button -->
+            <span class="logout"><i class="fa-solid fa-power-off"></i></span>
+          </div>
+        </div>
+        <!-- Main Content -->
+        <div data-role="main">
+
+          <center>
+            <div id="maintablecenter">
+              <!-- Dashboard -->
+              <div class="table">
+                <!-- Banks Feature -->
+                <a href="#" data-function="getBanks" id="getbanks">
+                  <div class="table-item">
+                    <img
+                      src="img/bank.png"
+                      alt="Clickable Image"
+                      width="200"
+                      height="200"
+                    />
+                    Banks
+                  </div>
+                </a>
+                <!-- Accounts Feature -->
+                <a href="#" data-function="getAccounts" id="getaccount">
+                  <div class="table-item">
+                    <img
+                      src="img/accounts.png"
+                      alt="Clickable Image"
+                      width="200"
+                      height="200"
+                    />
+
+                    Accounts
+                  </div>
+                </a>
+                <!-- Transactions Feature -->
+                <a
+                  href="#"
+                  data-function="getTransactions"
+                  id="gettransactions"
+                >
+                  <div class="table-item">
+                    <img
+                      src="img/salary.png"
+                      alt="Clickable Image"
+                      width="200"
+                      height="200"
+                    />
+                    Transactions
+                  </div>
+                </a>
+                <!-- Self-Service Feature -->
+                <a
+                  href="#"
+                  data-function="getTransactions"
+                  id="gettransactions"
+                >
+                  <div class="table-item">
+                    <img
+                      src="img/self-checkout.png"
+                      alt="Clickable Image"
+                      width="200"
+                      height="200"
+                    />
+                    Self Service
+                  </div>
+                </a>
+
+                <!-- Available Currencies Feature -->
+                <a href="#" id="getcurrencies">
+                  <div class="table-item">
+                    <img
+                      src="img/currencies.png"
+                      alt="Clickable Image"
+                      width="200"
+                      height="200"
+                    />
+                    Availabe currencies
+                  </div>
+                </a>
+                <!-- ATM Locations Feature -->
+                <a href="#" data-function="getTransactions" id="getatms">
+                  <div class="table-item">
+                    <img
+                      src="img/atm-machine.png"
+                      alt="Clickable Image"
+                      width="200"
+                      height="200"
+                    />
+                    ATM
+                  </div>
+                </a>
+              </div>
+            </div>
+          </center>
+        </div>
+
+        <!-- Checker Message -->
+        <p id="checker2"></p>
+        <div data-role="footer" data-position="fixed" class="footer">
+          <p>Flashapp</p>
+        </div>
+      </div>
+
+      <!-- Page 3 Bank Display Page -->
+      <div data-role="page" id="page3">
+        <div data-role="header" class="header">
+          <p class="logo">FLASHAPP</p>
+
+          <!-- Search filter Functionality -->
+          <input
+            type="text"
+            id="bankSearchInput"
+            placeholder="Search by Bank ID"
+          />
+
+          <div class="user-avatar">
+            <span class="logout"><i class="fa-solid fa-power-off"></i></span>
+          </div>
+        </div>
+        <div data-role="main">
+          <center>
+            <table
+              class="bank-table"
+              style="font-size: 1.1vw !important; font-weight: bold !important"
+            >
+              <p class="back">
+                <i class="fa-solid fa-arrow-left"></i>
+              </p>
+
+              <thead>
+                <tr>
+                  <th>Full Name</th>
+                  <th>Short Name</th>
+                  <th>ID</th>
+                </tr>
+              </thead>
+              <tbody id="tablebody" style="text-align: center"></tbody>
+            </table>
+          </center>
+        </div>
+        <div data-role="footer" data-position="fixed" class="footer">
+          <p>FLASHAPP</p>
+        </div>
+      </div>
+
+      <!-- Page 4  Account Display Page-->
+      <div data-role="page" id="page4">
+        <div data-role="header" class="header">
+          <p class="logo">FLASHAPP</p>
+          <div class="user-avatar">
+            <span class="logout"><i class="fa-solid fa-power-off"></i></span>
+          </div>
+        </div>
+        <div data-role="main" class="transaction-page">
+          <p class="back">
+            <i class="fa-solid fa-arrow-left"></i>
+          </p>
+          <center>
+            <div>
+              <h2 id="accountListhead"></h2>
+              <ol id="accountList"></ol>
+            </div>
+          </center>
+        </div>
+        <div data-role="footer" data-position="fixed" class="footer">
+          <p>FLASHAPP</p>
+        </div>
+      </div>
+
+      <!-- Page 5 Transaction Display Page-->
+      <div data-role="page" id="page5">
+        <div data-role="header" class="header">
+          <p class="logo">FLASHAPP</p>
+          <div class="user-avatar">
+            <span class="logout"><i class="fa-solid fa-power-off"></i></span>
+          </div>
+        </div>
+        <div data-role="main" class="trn-table">
+          <p class="back">
+            <i class="fa-solid fa-arrow-left"></i>
+          </p>
+          <center>
+            <table
+              style="font-size: 1.1vw !important; font-weight: bold !important"
+            >
+              <thead id="transTableHeading"></thead>
+              <tbody id="transactiontable" style="text-align: center">
+                <!-- Transaction Table Appears Here -->
+              </tbody>
+            </table>
+          </center>
+        </div>
+        <div data-role="footer" data-position="fixed" class="footer">
+          <p>Footer</p>
+        </div>
+      </div>
+
+      <!-- Page 6 ATM location Display Page-->
+      <div data-role="page" id="page6">
+        <div data-role="header" class="header">
+          <p class="logo">FLASHAPP</p>
+          <div class="user-avatar">
+            <span class="logout"><i class="fa-solid fa-power-off"></i></span>
+          </div>
+        </div>
+        <div data-role="main" class="atm-page">
+          <p class="back">
+            <i class="fa-solid fa-arrow-left"></i>
+          </p>
+          <center>
+            <table
+              table-role="table"
+              class="ui-responsive"
+              style="border-spacing: 10px"
+            >
+              <thead
+                id="atmTableHeading"
+                style="font-size: large; font-weight: bold"
+              ></thead>
+              <tbody
+                id="atmtable"
+                style="text-align: center; font-size: medium"
+              >
+                
+              </tbody>
+            </table>
+          </center>
+        </div>
+        <div data-role="footer" data-position="fixed" class="footer">
+          <p>FLASHAPP</p>
+        </div>
+      </div>
+
+      <!-- Page 7 Available Currencies Display Page-->
+      <div data-role="page" id="page7">
+        <div data-role="header" class="header">
+          <p class="logo">FLASHAPP</p>
+          <div class="user-avatar">
+            <span class="logout"><i class="fa-solid fa-power-off"></i></span>
+          </div>
+        </div>
+        <div data-role="main" class="currency-page">
+          <p class="back">
+            <i class="fa-solid fa-arrow-left"></i>
+          </p>
+          <center>
+            <table
+              table-role="table"
+              class="ui-responsive"
+              style="border-spacing: 10px"
+            >
+              <thead
+                id="currencyTableHeading"
+                style="font-size: large; font-weight: bold"
+              ></thead>
+              <tbody
+                id="currencytable"
+                style="text-align: center; font-size: medium"
+              >
+                
+              </tbody>
+            </table>
+          </center>
+        </div>
+        <div data-role="footer" data-position="fixed" class="footer">
+          <p>FLASHAPP</p>
+        </div>
+      </div>
+    </div>
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
